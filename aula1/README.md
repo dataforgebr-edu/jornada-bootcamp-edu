@@ -4,5 +4,6 @@ Nessa aula criamos um programa que lê o nome, salário e fator de bônus do usu
 ______________________________
 
 Para executar o programa utulize o comando abaixo
-
+```python
 python aula1/aula1.py
+```
