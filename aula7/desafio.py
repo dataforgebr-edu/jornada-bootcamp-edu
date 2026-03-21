@@ -22,7 +22,7 @@ def processas_dados(dados: list) -> dict:
             dict_processado[row["categoria"]] = [row]
             print(dict_processado)
         '''
-        for row in arquivo_csv:
+        for row in dados:
             dict_processado.setdefault(row["categoria"], []).append(row)
         return dict_processado
     except Exception as e:
@@ -33,24 +33,28 @@ def calcular_vendas_categoria(vendas: dict) -> dict:
     try:            
         vendas_categoria = {}
 
-        for key, value in dados_tratados.items():
+        for key, value in vendas.items():
             # print(key, value)
             for item in value:
-                if item["categoria"] in vendas_categoria:
-                    vendas_categoria[item["categoria"]] += float(item["preco"]) * int(item["quantidade"])
-                else: 
-                    vendas_categoria[item["categoria"]] = float(item["preco"]) * int(item["quantidade"])
+                vendas_categoria[key] = vendas_categoria.get(key, 0) + float(item["preco"]) * int(item["quantidade"])
+                # if item["categoria"] in vendas_categoria:
+                #     vendas_categoria[item["categoria"]] += float(item["preco"]) * int(item["quantidade"])
+                # else: 
+                #     vendas_categoria[item["categoria"]] = float(item["preco"]) * int(item["quantidade"])
         return vendas_categoria
     except Exception as e:
         print(f"Erro no cálculo das vendas: \n menssagem: {e}")
         return None
     
+def main():
+    arquivo_csv = ler_csv("aula7/data/vendas.csv")
+    # [print(f"{r}\n") for r in arquivo_csv]
 
-arquivo_csv = ler_csv("aula7/data/vendas.csv")
-# [print(f"{r}\n") for r in arquivo_csv]
+    dados_tratados = processas_dados(arquivo_csv)
+    # print(dados_tratados)
 
-dados_tratados = processas_dados(arquivo_csv)
-# print(dados_tratados)
+    vendas = calcular_vendas_categoria(dados_tratados)
+    [print(f"Categoria: {k}, valor: {v}") for k, v in vendas.items()]
 
-vendas = calcular_vendas_categoria(dados_tratados)
-print(vendas)
+if __name__ == '__main__':
+    main()
