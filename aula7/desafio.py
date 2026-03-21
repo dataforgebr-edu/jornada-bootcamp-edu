@@ -30,6 +30,9 @@ def processas_dados(dados: list) -> dict:
         return None
 
 def calcular_vendas_categoria(vendas: dict) -> dict:
+    """
+    Função para calcular os valores das vendas e retornar um dicionário
+    """
     try:            
         vendas_categoria = {}
 
