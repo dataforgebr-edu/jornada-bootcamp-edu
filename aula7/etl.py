@@ -1,7 +1,7 @@
 import csv
 
 
-def ler_csv(file: str) -> list:
+def ler_csv(file: str) -> list[dict]:
     try:
         with open(file,  mode="r", newline='') as file:
             csv_read = csv.DictReader(file, delimiter=";")
@@ -49,15 +49,4 @@ def calcular_vendas_categoria(vendas: dict) -> dict:
         print(f"Erro no cálculo das vendas: \n menssagem: {e}")
         return None
     
-def main():
-    arquivo_csv = ler_csv("aula7/data/vendas.csv")
-    # [print(f"{r}\n") for r in arquivo_csv]
 
-    dados_tratados = processas_dados(arquivo_csv)
-    # print(dados_tratados)
-
-    vendas = calcular_vendas_categoria(dados_tratados)
-    [print(f"Categoria: {k}, valor: {v}") for k, v in vendas.items()]
-
-if __name__ == '__main__':
-    main()
