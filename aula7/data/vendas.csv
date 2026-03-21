@@ -1,0 +1,6 @@
+categoria;produto;preco;entregue;quantidade
+eletrônicos;celular;2500;True;1
+vestuário;camiseta;55;False;1
+eletrônicos;notebook;3750;True;1
+eletrônicos;tablet;1890;True;1
+vestuário;sapato;270;False;1
