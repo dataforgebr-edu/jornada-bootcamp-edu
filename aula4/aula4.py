@@ -1,4 +1,4 @@
-'''
+"""
 nome_valido: bool = False
 salario_valido: bool = False
 bonus_valido: bool = False
@@ -42,26 +42,25 @@ bonus_recebido: float = 1000 + salario * bonus  # Exemplo simples de KPI
 
 # Imprime as informações para o usuário
 print(f"{nome}, seu salário é R${salario:.2f} e seu bônus final é R${bonus_recebido:.2f}.")
-'''
-
+"""
 
 # 1. Crie uma lista com os números de 1 a 10 e use um loop para imprimir cada número elevado ao quadrado.
-'''
+"""
 lista: list = []
 lista.extend(range(1, 11))
 for i in lista:
     print(i)
-'''
+"""
 # 2. Dada a lista `["Python", "Java", "C++", "JavaScript"]`, remova o item "C++" e adicione "Ruby".
-'''
+"""
 lista_pronta: list = ["Python", "Java", "C++", "JavaScript"]
 lista_pronta.remove("C++")
 print(lista_pronta)
 lista_pronta.append("Ruby")
 print(lista_pronta)
-'''
+"""
 # 3. Crie um dicionário para armazenar informações de um livro, incluindo título, autor e ano de publicação. Imprima cada informação.
-'''
+"""
 livros: dict = {
     'titulo':'livro1',
     'autor':'autor1',
@@ -69,9 +68,9 @@ livros: dict = {
 }
 for k, v in livros.items():
     print(k, v)
-'''
+"""
 # 4. Escreva um programa que conta o número de ocorrências de cada caractere em uma string usando um dicionário.
-'''
+"""
 texto_entrada: str = 'essa é uma string válida para um teste'
 texto_split: list = list(texto_entrada.replace(" ", ""))
 count_letras: dict = {}
@@ -81,18 +80,13 @@ for v in texto_split:
     else:
         count_letras[v] = 1
 print(count_letras)
-'''
+"""
 # 5. Dada a lista `["maçã", "banana", "cereja"]` e o dicionário `{"maçã": 0.45, "banana": 0.30, "cereja": 0.65}`, calcule o preço total da lista de compras.
 lista: list = ["maçã", "banana", "cereja"]
-dicionario: dict = {
-    "maçã": 0.45, 
-    "banana": 0.30, 
-    "cereja": 0.65
-}
+dicionario: dict = {"maçã": 0.45, "banana": 0.30, "cereja": 0.65}
 soma: int = 0
 
 for i in lista:
     soma += dicionario[i]
 
 print(f"a soma é {soma}")
-

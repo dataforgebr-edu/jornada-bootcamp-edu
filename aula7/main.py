@@ -1,4 +1,5 @@
-from etl import ler_csv, processas_dados, calcular_vendas_categoria
+from etl import calcular_vendas_categoria, ler_csv, processas_dados
+
 
 def main():
     arquivo_csv = ler_csv("aula7/data/vendas.csv")
@@ -10,5 +11,6 @@ def main():
     vendas = calcular_vendas_categoria(dados_tratados)
     [print(f"Categoria: {k}, valor: {v}") for k, v in vendas.items()]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
