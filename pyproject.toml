@@ -1,0 +1,18 @@
+[project]
+name = "jornada-bootcamp-edu"
+version = "1.0"
+description = "projeto de estudos da jornada de dados com foco em python para engenheiro de dados"
+authors = [
+    {name = "Rodrigo Silva dataforge.br@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = "3.12.10"
+dependencies = [
+    "requests (>=2.32.5,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
