@@ -1,0 +1,76 @@
+2026-03-25T06:31:37.809286-0300 ERROR Exceção capturada em 'calcular_kpi_de_total_de_vendas': Erro intencional utils.py
+Traceback (most recent call last):
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\pipeline.py", line 9, in <module>
+    pipeline_calcular_kpi_de_vendas_consolidado(pasta_argumento, formato_de_saida)
+    │                                           │                └ ['csv', 'parquet']
+    │                                           └ 'D:\\Git\\jornada-bootcamp-edu\\aula9\\data'
+    └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000026D073B4900>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\utils.py", line 29, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('D:\\Git\\jornada-bootcamp-edu\\aula9\\data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000026D073B4860>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\decorator_time.py", line 11, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('D:\\Git\\jornada-bootcamp-edu\\aula9\\data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000026D073B47C0>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\etl.py", line 43, in pipeline_calcular_kpi_de_vendas_consolidado
+    data_frame_calculado = calcular_kpi_de_total_de_vendas(data_frame)
+                           │                               └             Produto    Categoria  Quantidade  Venda        Data  Total
+                           │                                 0    Notebook Gamer  Eletrônicos           3   1500  2...
+                           └ <function calcular_kpi_de_total_de_vendas at 0x0000026D073213A0>
+
+> File "D:\Git\jornada-bootcamp-edu\aula9\utils.py", line 29, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (            Produto    Categoria  Quantidade  Venda        Data  Total
+             │       0    Notebook Gamer  Eletrônicos           3   1500  ...
+             └ <function calcular_kpi_de_total_de_vendas at 0x0000026D071AD9E0>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\etl.py", line 24, in calcular_kpi_de_total_de_vendas
+    raise ValueError("Erro intencional")
+
+ValueError: Erro intencional
+2026-03-25T06:31:37.822539-0300 ERROR Exceção capturada em 'pipeline_calcular_kpi_de_vendas_consolidado': Erro intencional utils.py
+Traceback (most recent call last):
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\pipeline.py", line 9, in <module>
+    pipeline_calcular_kpi_de_vendas_consolidado(pasta_argumento, formato_de_saida)
+    │                                           │                └ ['csv', 'parquet']
+    │                                           └ 'D:\\Git\\jornada-bootcamp-edu\\aula9\\data'
+    └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000026D073B4900>
+
+> File "D:\Git\jornada-bootcamp-edu\aula9\utils.py", line 29, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('D:\\Git\\jornada-bootcamp-edu\\aula9\\data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000026D073B4860>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\decorator_time.py", line 11, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('D:\\Git\\jornada-bootcamp-edu\\aula9\\data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000026D073B47C0>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\etl.py", line 43, in pipeline_calcular_kpi_de_vendas_consolidado
+    data_frame_calculado = calcular_kpi_de_total_de_vendas(data_frame)
+                           │                               └             Produto    Categoria  Quantidade  Venda        Data  Total
+                           │                                 0    Notebook Gamer  Eletrônicos           3   1500  2...
+                           └ <function calcular_kpi_de_total_de_vendas at 0x0000026D073213A0>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\utils.py", line 29, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (            Produto    Categoria  Quantidade  Venda        Data  Total
+             │       0    Notebook Gamer  Eletrônicos           3   1500  ...
+             └ <function calcular_kpi_de_total_de_vendas at 0x0000026D071AD9E0>
+
+  File "D:\Git\jornada-bootcamp-edu\aula9\etl.py", line 24, in calcular_kpi_de_total_de_vendas
+    raise ValueError("Erro intencional")
+
+ValueError: Erro intencional
