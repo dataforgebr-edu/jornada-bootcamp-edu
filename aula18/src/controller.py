@@ -1,9 +1,9 @@
 import requests
-from db import Base, SessionLocal, engine
+from db import SessionLocal
 from models import Pokemon
 from schema import PokemomSchema
 
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 
 def fetch_pokemon_data(pokemon_id: int):

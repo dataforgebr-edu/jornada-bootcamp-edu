@@ -2,9 +2,12 @@ import random
 import time
 
 from controller import add_pokemon_to_db, fetch_pokemon_data
+from db import init_db
 
 
 def main():
+    init_db()
+
     while True:
         pokemon_id = random.randint(1, 350)
         pokemon_schema = fetch_pokemon_data(pokemon_id=pokemon_id)
