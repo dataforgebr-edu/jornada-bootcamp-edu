@@ -2,7 +2,8 @@ from typing import List, Union
 
 import database
 import models
-import uvicorn
+
+# import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
 from schema import Item, ItemBase, ItemCreate
 from sqlalchemy.orm import Session
@@ -14,7 +15,7 @@ database.init_db()
 
 @app.post("/items/", response_model=Item)
 def create_item(item: ItemCreate, db: Session = Depends(database.get_db)):
-    db_item = models.Item(**item.dict())
+    db_item = models.Item(**item.model_dump())
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
@@ -40,7 +41,7 @@ def update_item(item_id: int, item: ItemCreate, db: Session = Depends(database.g
     db_item = db.query(models.Item).filter(models.Item.id == item_id).first()
     if db_item is None:
         raise HTTPException(status_code=404, detail="item not found")
-    for key, value in item.dict().items():
+    for key, value in item.model_dump().items():
         setattr(db_item, key, value)
     db.commit()
     db.refresh(db_item)
@@ -57,5 +58,5 @@ def delete_item(item_id: int, db: Session = Depends(database.get_db)):
     return db_item
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
