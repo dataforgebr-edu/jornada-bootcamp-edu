@@ -2,7 +2,14 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, EmailStr, Field, PositiveFloat, validator
+from pydantic import (
+    BaseModel,
+    EmailStr,
+    Field,
+    PositiveFloat,
+    field_validator,
+    validator,
+)
 
 
 class CategoriaBase(Enum):
@@ -20,7 +27,7 @@ class ProductBase(BaseModel):
     categoria: str
     email_fornecedor: EmailStr
 
-    @validator("categoria")
+    @field_validator("categoria")
     def check_categoria(cls, v):
         if v in [item.value for item in CategoriaBase]:
             return v
@@ -46,7 +53,7 @@ class ProductUpdate(BaseModel):
     categoria: Optional[str] = None
     email_fornecedor: Optional[EmailStr] = None
 
-    @validator("categoria", pre=True, always=True)
+    @field_validator("categoria", pre=True, always=True)
     def check_categoria(cls, v):
         if v is None:
             return v
